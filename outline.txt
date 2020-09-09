@@ -13,13 +13,16 @@ MODELS
 (Priority) Board
 	string: name
 	integer: wall_id
+	integer: user_id
 
 (Priority) Wall
 	string: name
 	integer: room_id
+	integer: user_id
 
 (Priority) Room
 	string: name
+	integer: user_id
 
 (Priority) Note
 	string: title
