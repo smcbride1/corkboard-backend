@@ -8,7 +8,7 @@ MODELS
 	string: name
 	string: email
 	string: password_digest
-	string: facebook_uuid
+	integer: facebook_uid
 
 (Priority) Board
 	string: name
