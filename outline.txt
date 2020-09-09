@@ -1,0 +1,108 @@
+Cork Board
+
+Virtual cork board that allows users to create and move around virtual notes
+
+MODELS
+
+(Priority) User
+	string: name
+	string: email
+	string: password_digest
+	string: facebook_uuid
+
+(Priority) Board
+	string: name
+	integer: wall_id
+
+(Priority) Wall
+	string: name
+	integer: room_id
+
+(Priority) Room
+	string: name
+
+(Priority) Note
+	string: title
+	string: short_content
+	string: long_content
+
+(Bonus) Connector
+	string: target_type
+	integer: source_id
+	integer: destination_id
+	boolean: directional
+
+(Bonus) Theme
+	string: font_color
+	string: card_color
+	string: accent_color
+	string: card_shape
+
+
+CONTROLLERS
+
+	User
+		create
+		show
+		edit
+		destroy
+
+	Board
+		create
+		show
+		index
+		edit
+		destroy
+		
+	Wall
+		create
+		show
+		index
+		edit
+		destroy
+
+	Room
+		create
+		show
+		index
+		edit
+		destroy
+
+	Note
+		create
+		show
+		index
+		edit
+		destroy
+
+
+ROUTES
+
+	[POST] /users
+	[GET] /users/{:id}
+	[PATCH] /users/{:id}
+	[DELETE] /users/{:id}
+	
+	[POST] /boards
+	[GET] /boards/{:id}
+    [GET] /boards/
+	[PATCH] /boards/{:id}
+	[DELETE] /boards/{:id}
+    	
+	[POST] /walls
+	[GET] /walls/{:id}
+    [GET] /walls/
+	[PATCH] /walls/{:id}
+	[DELETE] /walls/{:id}
+    	
+	[POST] /rooms
+	[GET] /rooms/{:id}
+    [GET] /rooms/
+	[PATCH] /rooms/{:id}
+	[DELETE] /rooms/{:id}
+    	
+	[POST] /notes
+	[GET] /notes/{:id}
+    [GET] /notes/
+	[PATCH] /notes/{:id}
+	[DELETE] /notes/{:id}
