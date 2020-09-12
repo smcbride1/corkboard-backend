@@ -4,7 +4,7 @@ class CreateNotes < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :short_content
       t.string :long_content
-      t.integer :board_id
+      t.belongs_to :board
       
       t.timestamps
     end
