@@ -1,2 +1,0 @@
-class WallsController < ApplicationController
-end
