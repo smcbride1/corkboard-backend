@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = user.id
                 render json: UserSerializer.new(user).to_serialized_json
             else
-                render error_message("Invalid email or password. Please try again.")
+                render json: error_message("Invalid email or password.")
             end
         end
     end
@@ -28,5 +28,8 @@ class SessionsController < ApplicationController
 
     def auth
         request.env['omniauth.auth']
+    end
+    def error_message(message) 
+        return {error: true, message: message}.to_json
     end
 end

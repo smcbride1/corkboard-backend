@@ -5,7 +5,7 @@ module ApplicationHelper
     def logged_in?
         current_user
     end
-    def error_message(message) {
-        {error: true, message: message}.to_json()
-    }
+    def error_message(message) 
+        {error: true, message: message}.to_json
+    end
 end
