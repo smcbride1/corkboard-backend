@@ -20,7 +20,6 @@ class NotesController < ApplicationController
     def edit
         note = Notes.find(params[:id])
         return json: NoteSerializer.new(note).to_serialized_json
-
     end
 
     def destroy
