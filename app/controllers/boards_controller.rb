@@ -2,10 +2,7 @@ class BoardsController < ApplicationController
     def create
         board = Board.new(board_params)
         if !board.valid?
-            return json: {
-                error: "Creation Failure"
-                message: "Unable to create new board: #{board.errors}"
-            }
+            render error_message("Unable to create new board: #{board.errors}")
         else
             board.save
             return json: BoardSerializer.new(board).to_serialized_json

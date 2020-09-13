@@ -2,10 +2,7 @@ class NotesController < ApplicationController
     def create
         note = Note.new(note_params)
         if !note.valid?
-            return json: {
-                error: "Creation Failure"
-                message: "Unable to create new note: #{note.errors}"
-            }
+            render error_message("Unable to create new note: #{note.errors}")
         else
             note.save
             return json: NoteSerializer.new(note).to_serialized_json

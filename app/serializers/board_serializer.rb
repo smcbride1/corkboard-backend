@@ -6,7 +6,7 @@ class BoardSerializer
     def to_serialized_json
       @board.to_json(
         include: {
-          question: {
+          board: {
             except: [:answer, :created_at, :updated_at]
           }
         }
