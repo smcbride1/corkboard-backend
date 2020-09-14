@@ -29,7 +29,4 @@ class SessionsController < ApplicationController
     def auth
         request.env['omniauth.auth']
     end
-    def error_message(message) 
-        return {error: true, message: message}.to_json
-    end
 end
