@@ -25,6 +25,14 @@ class SessionsController < ApplicationController
     def destroy #logout
         session.destroy
     end
+    
+    def current_user_info
+        if current_user
+            render json: UserSerializer.new(current_user).to_serialized_json
+        else
+            render json: error_message("Not logged in.")
+        end
+    end
 
     def auth
         request.env['omniauth.auth']
