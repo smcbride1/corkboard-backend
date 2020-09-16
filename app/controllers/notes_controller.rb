@@ -14,6 +14,14 @@ class NotesController < ApplicationController
         return json: NoteSerializer.new(note).to_serialized_json
     end
 
+    def index
+        if params.has_key?(:board_id)
+            notes = Note.where(board_id: params[:board_id])
+        else
+            render error_message("Specific board must be specified")
+        end
+    end
+
     def edit
         note = Notes.find(params[:id])
         return json: NoteSerializer.new(note).to_serialized_json

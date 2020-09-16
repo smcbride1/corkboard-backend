@@ -13,11 +13,18 @@ class BoardsController < ApplicationController
         board = Boards.find(params[:id])
         return json: BoardSerializer.new(board).to_serialized_json
     end
+    
+    def index
+        if params.has_key?(:user_id)
+            boards = Board.where(user_id: params[:user_id])
+        else
+            render error_message("Specific user must be specified")
+        end
+    end
 
     def edit
         board = Boards.find(params[:id])
         return json: BoardSerializer.new(board).to_serialized_json
-
     end
 
     def destroy
