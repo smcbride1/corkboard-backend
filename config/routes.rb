@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   resources :boards, only: [:create, :show, :edit, :destroy]
   resources :users, only: [:create, :show, :edit, :destroy]
   
+  resources :users do
+    resources :boards, only: [:index]
+  end
+
+  resources :boards do
+    resources :notes, only: [:index]
+  end
+
   post "login", to: "sessions#create"
   post "logout", to: "sessions#destroy"
   get "current_user", to: "sessions#current_user_info"
