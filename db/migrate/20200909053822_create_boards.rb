@@ -3,7 +3,6 @@ class CreateBoards < ActiveRecord::Migration[6.0]
     create_table :boards do |t|
       t.string :name
       t.belongs_to :user
-      t.belongs_to :board
       
       t.timestamps
     end

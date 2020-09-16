@@ -5,13 +5,13 @@ class BoardsController < ApplicationController
             render error_message("Unable to create new board: #{board.errors}")
         else
             board.save
-            return json: BoardSerializer.new(board).to_serialized_json
+            render json: BoardSerializer.new(board).to_serialized_json
         end
     end
 
     def show
-        board = Boards.find(params[:id])
-        return json: BoardSerializer.new(board).to_serialized_json
+        board = Board.find(params[:id])
+        render json: BoardSerializer.new(board).to_serialized_json
     end
     
     def index
@@ -23,8 +23,8 @@ class BoardsController < ApplicationController
     end
 
     def edit
-        board = Boards.find(params[:id])
-        return json: BoardSerializer.new(board).to_serialized_json
+        board = Board.find(params[:id])
+        render json: BoardSerializer.new(board).to_serialized_json
     end
 
     def destroy

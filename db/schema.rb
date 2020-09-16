@@ -15,10 +15,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_054030) do
   create_table "boards", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
-    t.integer "board_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["board_id"], name: "index_boards_on_board_id"
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
@@ -26,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_054030) do
     t.string "title"
     t.string "short_content"
     t.string "long_content"
+    t.integer "x_offset"
+    t.integer "y_offset"
     t.integer "board_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

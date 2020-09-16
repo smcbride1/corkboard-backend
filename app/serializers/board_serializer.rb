@@ -5,12 +5,7 @@ class BoardSerializer
   
     def to_serialized_json
       @board.to_json(
-        include: {
-          board: {
-            except: [:answer, :created_at, :updated_at]
-          }
-        }
-        only: [:text]
+        except: [:answer, :created_at, :updated_at]
       )
     end
   end
