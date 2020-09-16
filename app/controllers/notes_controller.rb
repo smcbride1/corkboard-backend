@@ -5,13 +5,13 @@ class NotesController < ApplicationController
             render error_message("Unable to create new note: #{note.errors}")
         else
             note.save
-            return json: NoteSerializer.new(note).to_serialized_json
+            render json: NoteSerializer.new(note).to_serialized_json
         end
     end
 
     def show
-        note = Notes.find(params[:id])
-        return json: NoteSerializer.new(note).to_serialized_json
+        note = Note.find(params[:id])
+        render json: NoteSerializer.new(note).to_serialized_json
     end
 
     def index
@@ -23,8 +23,8 @@ class NotesController < ApplicationController
     end
 
     def edit
-        note = Notes.find(params[:id])
-        return json: NoteSerializer.new(note).to_serialized_json
+        note = Note.find(params[:id])
+        render json: NoteSerializer.new(note).to_serialized_json
     end
 
     def destroy
