@@ -23,8 +23,9 @@ class BoardsController < ApplicationController
         end
     end
 
-    def edit
+    def update
         board = Board.find(params[:id])
+        board.update(board_params)
         render json: BoardSerializer.new(board).to_serialized_json
     end
 

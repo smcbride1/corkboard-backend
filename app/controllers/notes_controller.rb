@@ -23,8 +23,9 @@ class NotesController < ApplicationController
         end
     end
 
-    def edit
+    def update
         note = Note.find(params[:id])
+        note.update(note_params)
         render json: NoteSerializer.new(note).to_serialized_json
     end
 
