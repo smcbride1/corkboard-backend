@@ -17,6 +17,7 @@ class NotesController < ApplicationController
     def index
         if params.has_key?(:board_id)
             notes = Note.where(board_id: params[:board_id])
+            render json: NoteSerializer.new(notes).to_serialized_json
         else
             render error_message("Specific board must be specified")
         end

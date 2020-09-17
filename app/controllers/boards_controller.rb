@@ -17,6 +17,7 @@ class BoardsController < ApplicationController
     def index
         if params.has_key?(:user_id)
             boards = Board.where(user_id: params[:user_id])
+            render json: BoardSerializer.new(boards).to_serialized_json
         else
             render error_message("Specific user must be specified")
         end
