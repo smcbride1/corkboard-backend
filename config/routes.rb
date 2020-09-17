@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :notes, only: [:create, :show, :edit, :destroy]
-  resources :boards, only: [:create, :show, :edit, :destroy]
-  resources :users, only: [:create, :show, :edit, :destroy]
+  resources :notes, only: [:create, :show, :update, :destroy]
+  resources :boards, only: [:create, :show, :update, :destroy]
+  resources :users, only: [:create, :show, :update, :destroy]
   
   resources :users do
     resources :boards, only: [:index]
