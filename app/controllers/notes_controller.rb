@@ -30,6 +30,8 @@ class NotesController < ApplicationController
     end
 
     def destroy
+        note = Note.find(params[:id])
+        note.destroy
     end
 
     def note_params
