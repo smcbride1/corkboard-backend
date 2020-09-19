@@ -30,6 +30,8 @@ class BoardsController < ApplicationController
     end
 
     def destroy
+        board = Board.find(params[:id])
+        board.destroy
     end
 
     def board_params
